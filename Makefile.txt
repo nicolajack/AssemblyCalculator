@@ -1,0 +1,51 @@
+# to create object file from and
+and.o:
+	as -g and.s -o and.o
+# to creat object file from or
+or.o:
+	as -g or.s -o or.o
+# to create object file from shl
+shl.o:
+	as -g shl.s -o shl.o
+# to create object file from lower
+lower.o:
+	as -g lower.s -o lower.o
+# to create an object file from calc
+calc.o:
+	as -g calc.s -o calc.o
+# to create an object file from data/basic_cmds.s
+data/basic_cmds.o:
+	as -g data/basic_cmds.s -o data/basic_cmds.o
+# to link together calc and basic_cmds objects
+calc_basic: calc.o and.o or.o shl.o lower.o data/basic_cmds.o
+	ld -g calc.o and.o or.o shl.o lower.o data/basic_cmds.o -o calc_basic
+# to create an object file from data/simpleone_cmds.s
+data/simpleone_cmds.o:
+	as -g data/simpleone_cmds.s -o data/simpleone_cmds.o
+# to link together calc and simpleone objects
+calc_simpleone: calc.o and.o or.o shl.o lower.o data/simpleone_cmds.o
+	ld -g calc.o and.o or.o shl.o lower.o data/simpleone_cmds.o -o calc_simpleone
+# to create an object file from data/loweronly_cmds.s
+data/loweronly_cmds.o:
+	as -g data/loweronly_cmds.s -o data/loweronly_cmds.o
+# to link together calc and loweronly objcets
+calc_loweronly: calc.o and.o or.o shl.o lower.o data/loweronly_cmds.o
+	ld -g calc.o and.o or.o shl.o lower.o data/loweronly_cmds.o -o calc_loweronly
+# to create an object file from data/easy_cmds.s
+data/easy_cmds.o:
+	as -g data/easy_cmds.s -o data/easy_cmds.o
+# to link together calc and calceasy objects
+calc_easy: calc.o and.o or.o shl.o lower.o data/easy_cmds.o
+	ld -g calc.o and.o or.o shl.o lower.o data/easy_cmds.o -o calc_easy
+# to create an object file from basicwithlower
+data/basicwithlower_cmds.o:
+	as -g data/basicwithlower_cmds.s -o data/basicwithlower_cmds.o
+# to link togther
+calc_basicwithlower: calc.o and.o or.o shl.o lower.o data/basicwithlower_cmds.o
+	ld -g calc.o and.o or.o shl.o lower.o data/basicwithlower_cmds.o -o calc_basicwithlower
+# to create object file from simplerandom
+data/simplerandom_cmds.o:
+	as -g data/simplerandom_cmds.s -o data/simplerandom_cmds.o
+# to link
+calc_simplerandom: calc.o and.o or.o shl.o lower.o data/simplerandom_cmds.o
+	ld -g calc.o and.o or.o shl.o lower.o data/simplerandom_cmds.o -o calc_simplerandom
